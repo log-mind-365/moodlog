@@ -133,7 +133,7 @@ class _FloatingActionOverlay extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(Roundness.md),
             ),
-            child: Padding(padding: CommonPadding.sm, child: Icon(icon)),
+            child: Padding(padding: CommonPadding.sm, child: Icon(icon, color: Colors.black,)),
           ),
         ],
       ),

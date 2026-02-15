@@ -128,6 +128,8 @@ class _HorizontalViewState extends State<_HorizontalView>
                   selectedDate: viewModel.selectedDate,
                   selectDate: viewModel.selectDate,
                   isFuture: date.isAfter(DateTime.now()),
+                  isFirst: index == 0,
+                  isLast: index == viewModel.dateItems!.length - 1,
                   journals: journalsForDay,
                 );
               },

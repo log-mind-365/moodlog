@@ -10,6 +10,8 @@ class DateAndDay extends StatelessWidget {
   final DateTime selectedDate;
   final Function(DateTime) selectDate;
   final bool isFuture;
+  final bool isFirst;
+  final bool isLast;
   final List<Journal>? journals;
 
   const DateAndDay({
@@ -19,6 +21,8 @@ class DateAndDay extends StatelessWidget {
     required this.selectedDate,
     required this.selectDate,
     required this.isFuture,
+    this.isFirst = false,
+    this.isLast = false,
     this.journals,
   });
 
@@ -28,6 +32,7 @@ class DateAndDay extends StatelessWidget {
     final bool isToday = date.isSameDay(todayDate);
     final t = AppLocalizations.of(context)!;
     final colorScheme = Theme.of(context).colorScheme;
+
 
     final Color textColor = isSelected
         ? colorScheme.onSurface
@@ -46,7 +51,12 @@ class DateAndDay extends StatelessWidget {
         ? colorScheme.onSurface
         : colorScheme.surface;
 
-    return InkWell(
+    return Padding(
+      padding: EdgeInsets.only(
+        left: isFirst ? Spacing.md : 0,
+        right: isLast ? Spacing.md : 0,
+      ),
+      child: InkWell(
       onTap: isFuture ? null : () => selectDate(date),
       borderRadius: BorderRadius.circular(Roundness.lg),
       child: AnimatedContainer(
@@ -103,6 +113,7 @@ class DateAndDay extends StatelessWidget {
           ],
         ),
       ),
+    ),
     );
   }
 }
