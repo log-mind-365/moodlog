@@ -25,11 +25,7 @@ class _HomeScreenContent extends StatelessWidget {
                       child: const WelcomeZone(),
                     ),
                     CommonSizedBox.heightXl,
-                    FadeIn(
-                      delay: DelayMS.medium * 3,
-                      child: const MoodSummaryCard(),
-                    ),
-                    CommonSizedBox.heightXl,
+                    const MoodSummaryCard(),
                     FadeIn(
                       delay: DelayMS.medium * 4,
                       child: const UnifiedCalendarWidget(),

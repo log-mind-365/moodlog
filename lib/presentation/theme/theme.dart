@@ -1,49 +1,106 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:moodlog/core/constants/common.dart';
 import 'package:moodlog/domain/entities/font/font_type.dart';
 import 'package:moodlog/presentation/theme/colors.dart';
 
 abstract final class AppTheme {
   static ThemeData lightTheme(FontType fontType) {
-    final colorScheme = ColorScheme.fromSeed(
-      seedColor: AppColors.lightTheme.primaryColor,
+    final cs = ColorScheme.fromSeed(
+      seedColor: AppColors.seedColor,
       brightness: Brightness.light,
     );
     return ThemeData(
       appBarTheme: AppBarTheme(
-        backgroundColor: colorScheme.surfaceContainerLowest,
+        backgroundColor: cs.surfaceContainerLowest,
         systemOverlayStyle: SystemUiOverlayStyle(
-          systemNavigationBarColor: colorScheme.surfaceContainer,
+          systemNavigationBarColor: cs.surfaceContainer,
           systemNavigationBarIconBrightness: Brightness.dark,
         ),
       ),
       fontFamily: fontType is LocalFont ? fontType.fontName : null,
       brightness: Brightness.light,
-      scaffoldBackgroundColor: colorScheme.surfaceContainerLowest,
+      scaffoldBackgroundColor: cs.surfaceContainerLowest,
       textTheme: _getTextTheme(fontType),
-      colorScheme: AppColors.lightGrayColorScheme,
+      colorScheme: cs,
+      cardTheme: _buildCardTheme(cs),
+      filledButtonTheme: _buildFilledButtonTheme(cs),
+      bottomSheetTheme: _buildBottomSheetTheme(cs),
+      inputDecorationTheme: _buildInputDecorationTheme(),
+      chipTheme: _buildChipTheme(cs),
     );
   }
 
   static ThemeData darkTheme(FontType fontType) {
-    final colorScheme = ColorScheme.fromSeed(
-      seedColor: AppColors.darkTheme.primaryColor,
+    final cs = ColorScheme.fromSeed(
+      seedColor: AppColors.seedColor,
       brightness: Brightness.dark,
     );
     return ThemeData(
       appBarTheme: AppBarTheme(
-        backgroundColor: colorScheme.surfaceContainerLowest,
+        backgroundColor: cs.surfaceContainerLowest,
         systemOverlayStyle: SystemUiOverlayStyle(
-          systemNavigationBarColor: colorScheme.surfaceContainer,
+          systemNavigationBarColor: cs.surfaceContainer,
           systemNavigationBarIconBrightness: Brightness.light,
         ),
       ),
       fontFamily: fontType is LocalFont ? fontType.fontName : null,
       brightness: Brightness.dark,
-      scaffoldBackgroundColor: colorScheme.surfaceContainerLowest,
+      scaffoldBackgroundColor: cs.surfaceContainerLowest,
       textTheme: _getTextTheme(fontType),
-      colorScheme: AppColors.darkGrayColorScheme,
+      colorScheme: cs,
+      cardTheme: _buildCardTheme(cs),
+      filledButtonTheme: _buildFilledButtonTheme(cs),
+      bottomSheetTheme: _buildBottomSheetTheme(cs),
+      inputDecorationTheme: _buildInputDecorationTheme(),
+      chipTheme: _buildChipTheme(cs),
+    );
+  }
+
+  static CardThemeData _buildCardTheme(ColorScheme cs) {
+    return CardThemeData(
+      color: cs.surfaceContainer,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(Roundness.card),
+      ),
+      clipBehavior: Clip.hardEdge,
+    );
+  }
+
+  static FilledButtonThemeData _buildFilledButtonTheme(ColorScheme cs) {
+    return FilledButtonThemeData(
+      style: FilledButton.styleFrom(
+        backgroundColor: cs.surfaceContainer,
+        foregroundColor: cs.onSurface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(Roundness.button),
+        ),
+      ),
+    );
+  }
+
+  static BottomSheetThemeData _buildBottomSheetTheme(ColorScheme cs) {
+    return BottomSheetThemeData(
+      backgroundColor: cs.surface,
+      showDragHandle: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(Roundness.card)),
+      ),
+    );
+  }
+
+  static InputDecorationTheme _buildInputDecorationTheme() {
+    return const InputDecorationTheme(
+      border: UnderlineInputBorder(),
+    );
+  }
+
+  static ChipThemeData _buildChipTheme(ColorScheme cs) {
+    return ChipThemeData(
+      selectedColor: cs.primaryContainer,
+      checkmarkColor: cs.onPrimaryContainer,
     );
   }
 
