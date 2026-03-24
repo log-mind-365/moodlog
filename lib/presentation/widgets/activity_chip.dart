@@ -14,22 +14,18 @@ class ActivityChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Chip(
+      label: Text('#${activity.name}'),
+      labelStyle: (isCompact
+              ? Theme.of(context).textTheme.labelSmall
+              : Theme.of(context).textTheme.labelMedium)
+          ?.copyWith(color: Theme.of(context).colorScheme.outline),
+      backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+      side: BorderSide.none,
+      visualDensity: isCompact ? VisualDensity.compact : VisualDensity.standard,
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
       padding: EdgeInsets.symmetric(
-        horizontal: isCompact ? Spacing.sm : Spacing.md,
-        vertical: isCompact ? Spacing.xs : Spacing.sm,
-      ),
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(Roundness.chip),
-      ),
-      child: Text(
-        '#${activity.name}',
-        style:
-            (isCompact
-                    ? Theme.of(context).textTheme.labelSmall
-                    : Theme.of(context).textTheme.labelMedium)
-                ?.copyWith(color: Theme.of(context).colorScheme.outline),
+        horizontal: isCompact ? Spacing.xs : Spacing.sm,
       ),
     );
   }

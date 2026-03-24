@@ -38,25 +38,20 @@ class SubmitButton extends StatelessWidget {
 
   ButtonStyle _buildButtonStyle(BuildContext context) {
     if (style != null) return style!;
+    if (backgroundColor == null && foregroundColor == null) {
+      return Theme.of(context).filledButtonTheme.style ?? const ButtonStyle();
+    }
 
     const disabledAlpha = 0.60;
     const disabledForegroundColorAlpha = 0.40;
 
     return FilledButton.styleFrom(
-      backgroundColor:
-          backgroundColor ?? Theme.of(context).colorScheme.surfaceContainer,
-      foregroundColor:
-          foregroundColor ?? Theme.of(context).colorScheme.onSurface,
+      backgroundColor: backgroundColor,
+      foregroundColor: foregroundColor,
       disabledBackgroundColor:
-          backgroundColor?.withValues(alpha: disabledAlpha) ??
-          Theme.of(
-            context,
-          ).colorScheme.surfaceContainer.withValues(alpha: disabledAlpha),
+          backgroundColor?.withValues(alpha: disabledAlpha),
       disabledForegroundColor:
-          foregroundColor?.withValues(alpha: disabledForegroundColorAlpha) ??
-          Theme.of(context).colorScheme.onSurface.withValues(
-            alpha: disabledForegroundColorAlpha,
-          ),
+          foregroundColor?.withValues(alpha: disabledForegroundColorAlpha),
     );
   }
 

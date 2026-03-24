@@ -21,17 +21,6 @@ class EmptyEntriesBox extends StatelessWidget {
     final t = AppLocalizations.of(context)!;
     final isToday = selectedDate.isSameDay(DateTime.now());
 
-    final buttonStyle = ButtonStyle(
-      backgroundColor: WidgetStateProperty.resolveWith((states) {
-        if (states.contains(WidgetState.disabled)) {
-          return Theme.of(
-            context,
-          ).colorScheme.surfaceContainer.withValues(alpha: 0.5);
-        }
-        return Theme.of(context).colorScheme.surfaceContainer;
-      }),
-    );
-
     Widget buildButton({
       required VoidCallback? onPressed,
       required IconData icon,
@@ -39,7 +28,6 @@ class EmptyEntriesBox extends StatelessWidget {
     }) {
       return FilledButton.tonal(
         onPressed: isDisabled ? null : onPressed,
-        style: buttonStyle,
         child: Row(
           spacing: Spacing.md,
           mainAxisSize: MainAxisSize.min,

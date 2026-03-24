@@ -44,22 +44,20 @@ class JournalCard extends StatelessWidget {
         ? TextTheme.of(context).bodySmall
         : TextTheme.of(context).bodyMedium;
 
-    return InkWell(
-      onTap: onTap,
-      onLongPress: onLongPress,
-      borderRadius: BorderRadius.circular(Roundness.card),
-      child: Container(
-        clipBehavior: Clip.hardEdge,
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surfaceContainer,
-          borderRadius: BorderRadius.circular(Roundness.card),
-          border: isSelected
-              ? Border.all(
-                  color: Theme.of(context).colorScheme.primary,
-                  width: 2,
-                )
-              : null,
-        ),
+    return Card(
+      shape: isSelected
+          ? RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(Roundness.card),
+              side: BorderSide(
+                color: Theme.of(context).colorScheme.primary,
+                width: 2,
+              ),
+            )
+          : null,
+      child: InkWell(
+        onTap: onTap,
+        onLongPress: onLongPress,
+        borderRadius: BorderRadius.circular(Roundness.card),
         child: Stack(
           children: [
             Column(
@@ -171,9 +169,11 @@ class JournalCard extends StatelessWidget {
               CommonSizedBox.heightXs,
               Text(
                 'Image not found',
-                style: TextStyle(
+                style: (isCompact
+                        ? Theme.of(context).textTheme.labelSmall
+                        : Theme.of(context).textTheme.bodySmall)
+                    ?.copyWith(
                   color: Theme.of(context).colorScheme.outline,
-                  fontSize: isCompact ? 10 : 12,
                 ),
               ),
             ],

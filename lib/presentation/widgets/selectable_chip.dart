@@ -30,8 +30,6 @@ class SelectableChip extends StatelessWidget {
       ),
       selected: isSelected,
       onSelected: onSelected,
-      selectedColor: Theme.of(context).colorScheme.primaryContainer,
-      checkmarkColor: Theme.of(context).colorScheme.onPrimaryContainer,
       side: isSelected
           ? BorderSide(color: Theme.of(context).colorScheme.primary, width: 2)
           : null,
