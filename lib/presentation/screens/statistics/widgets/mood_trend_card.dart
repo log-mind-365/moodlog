@@ -31,9 +31,9 @@ class MoodTrendCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _buildTotalResult(context, sortedMoodTrendData.length),
-          const SizedBox(height: Spacing.lg),
+          CommonSizedBox.heightLg,
           _buildMoodChart(context, sortedMoodTrendData),
-          const SizedBox(height: Spacing.lg),
+          CommonSizedBox.heightLg,
           _buildScore(context, sortedMoodTrendData),
         ],
       ),
@@ -85,7 +85,7 @@ class MoodTrendCard extends StatelessWidget {
             ],
           ),
           if (recent7Days.isNotEmpty) ...[
-            const SizedBox(height: Spacing.sm),
+            CommonSizedBox.heightSm,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -272,7 +272,7 @@ class MoodTrendCard extends StatelessWidget {
                   size: 64,
                   color: colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
                 ),
-                const SizedBox(height: Spacing.md),
+                CommonSizedBox.heightMd,
                 Text(
                   t.statistics_mood_trend_empty,
                   style: textTheme.bodyMedium?.copyWith(

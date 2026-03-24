@@ -102,7 +102,7 @@ class RepresentativeMoodCard extends StatelessWidget {
                             color: colorScheme.onSurfaceVariant,
                           ),
                         ),
-                        const SizedBox(width: Spacing.md),
+                        CommonSizedBox.widthMd,
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,7 +116,7 @@ class RepresentativeMoodCard extends StatelessWidget {
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              const SizedBox(height: Spacing.xs),
+                              CommonSizedBox.heightXs,
                               Text(
                                 t.home_representative_mood_empty,
                                 style: textTheme.titleLarge?.copyWith(
@@ -151,7 +151,7 @@ class RepresentativeMoodCard extends StatelessWidget {
                         ).scale(),
                       ],
                     ),
-                    const SizedBox(height: Spacing.md),
+                    CommonSizedBox.heightMd,
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: Spacing.md,
@@ -172,7 +172,7 @@ class RepresentativeMoodCard extends StatelessWidget {
                             size: 16,
                             color: colorScheme.onSurfaceVariant,
                           ),
-                          const SizedBox(width: Spacing.xs),
+                          CommonSizedBox.widthXs,
                           Text(
                             t.home_representative_mood_empty_description,
                             style: textTheme.bodySmall?.copyWith(
@@ -275,7 +275,7 @@ class RepresentativeMoodCard extends StatelessWidget {
                           style: const TextStyle(fontSize: 20),
                         ),
                       ),
-                      const SizedBox(width: Spacing.md),
+                      CommonSizedBox.widthMd,
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -293,7 +293,7 @@ class RepresentativeMoodCard extends StatelessWidget {
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                            const SizedBox(height: Spacing.xs),
+                            CommonSizedBox.heightXs,
                             Text(
                               representativeMood.getDisplayName(context),
                               style: textTheme.titleLarge?.copyWith(
@@ -324,7 +324,7 @@ class RepresentativeMoodCard extends StatelessWidget {
                       ).scale(),
                     ],
                   ),
-                  const SizedBox(height: Spacing.md),
+                  CommonSizedBox.heightMd,
                   Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: Spacing.md,
@@ -341,7 +341,7 @@ class RepresentativeMoodCard extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Icon(Icons.auto_awesome, size: 16, color: moodColor),
-                        const SizedBox(width: Spacing.xs),
+                        CommonSizedBox.widthXs,
                         Text(
                           t.home_representative_mood_description,
                           style: textTheme.bodySmall?.copyWith(

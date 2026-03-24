@@ -21,7 +21,7 @@ class ActivityItem extends StatelessWidget {
         children: [
           // Display emoji instead of icon
           Text(emoji, style: TextStyle(fontSize: 24)),
-          const SizedBox(width: Spacing.md),
+          CommonSizedBox.widthMd,
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

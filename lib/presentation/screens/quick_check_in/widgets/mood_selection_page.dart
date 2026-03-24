@@ -51,13 +51,7 @@ class MoodSelectionPage extends StatelessWidget {
               width: double.infinity,
               child: FilledButton(
                 onPressed: onNext,
-                child: Text(
-                  t.quick_check_in_next,
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    color: Theme.of(context).colorScheme.onPrimary,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
+                child: Text(t.quick_check_in_next),
               ),
             ),
           ),

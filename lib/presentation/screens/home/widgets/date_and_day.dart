@@ -78,10 +78,8 @@ class DateAndDay extends StatelessWidget {
                 children: [
                   Text(
                     date.getLocalizedWeekdayShortName(t),
-                    style: TextStyle(
+                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
                       color: weekdayColor,
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(

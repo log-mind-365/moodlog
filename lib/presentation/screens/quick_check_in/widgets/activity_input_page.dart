@@ -64,7 +64,6 @@ class ActivityInputPageState extends State<ActivityInputPage>
             focusNode: _focusNode,
             decoration: InputDecoration(
               hintText: t.quick_check_in_activity_hint,
-              border: const UnderlineInputBorder(),
             ),
             onSubmitted: (value) {
               if (value.isNotEmpty) {
@@ -80,13 +79,7 @@ class ActivityInputPageState extends State<ActivityInputPage>
             width: double.infinity,
             child: FilledButton(
               onPressed: widget.onNext,
-              child: Text(
-                t.quick_check_in_next,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.onPrimary,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
+              child: Text(t.quick_check_in_next),
             ),
           ),
           CommonSizedBox.heightXl,
