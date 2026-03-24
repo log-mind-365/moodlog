@@ -17,16 +17,36 @@ class StatItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    return Column(
-      children: [
-        Icon(icon, size: 32, color: colorScheme.primary),
-        const SizedBox(height: Spacing.sm),
-        Text(
-          value,
-          style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
-        ),
-        Text(label, style: textTheme.bodyMedium),
-      ],
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        vertical: Spacing.lg,
+        horizontal: Spacing.md,
+      ),
+      decoration: BoxDecoration(
+        color: colorScheme.primary.withValues(alpha: 0.06),
+        borderRadius: BorderRadius.circular(Roundness.cardInner),
+      ),
+      child: Column(
+        children: [
+          Icon(icon, size: 28, color: colorScheme.primary),
+          CommonSizedBox.heightSm,
+          Text(
+            value,
+            style: textTheme.titleLarge?.copyWith(
+              fontWeight: FontWeight.bold,
+              color: colorScheme.primary,
+            ),
+          ),
+          CommonSizedBox.heightXs,
+          Text(
+            label,
+            style: textTheme.labelSmall?.copyWith(
+              color: colorScheme.onSurfaceVariant,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
     );
   }
 }

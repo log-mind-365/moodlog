@@ -81,7 +81,8 @@ class _DayBar extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
 
-    final barHeight = maxCount > 0 ? (count / maxCount * 100).clamp(8.0, 100.0) : 8.0;
+    final barHeight =
+        maxCount > 0 ? (count / maxCount * 100).clamp(8.0, 100.0) : 8.0;
     final isHighest = count == maxCount && count > 0;
 
     return Column(
@@ -90,26 +91,40 @@ class _DayBar extends StatelessWidget {
         Text(
           count.toString(),
           style: textTheme.labelSmall?.copyWith(
-            color: isHighest ? colorScheme.primary : colorScheme.onSurfaceVariant,
+            color: isHighest
+                ? colorScheme.primary
+                : colorScheme.onSurfaceVariant,
             fontWeight: isHighest ? FontWeight.bold : FontWeight.normal,
           ),
         ),
         CommonSizedBox.heightXs,
         Container(
-          width: 28,
+          width: 32,
           height: barHeight,
           decoration: BoxDecoration(
+            gradient: isHighest
+                ? LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [
+                      colorScheme.primary,
+                      colorScheme.primary.withValues(alpha: 0.7),
+                    ],
+                  )
+                : null,
             color: isHighest
-                ? colorScheme.primary
-                : colorScheme.primaryContainer.withValues(alpha: 0.5),
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(4)),
+                ? null
+                : colorScheme.primaryContainer.withValues(alpha: 0.4),
+            borderRadius: BorderRadius.circular(6),
           ),
         ),
         CommonSizedBox.heightXs,
         Text(
           _getDayLabel(context, dayOfWeek),
           style: textTheme.labelSmall?.copyWith(
-            color: isHighest ? colorScheme.primary : colorScheme.onSurfaceVariant,
+            color: isHighest
+                ? colorScheme.primary
+                : colorScheme.onSurfaceVariant,
             fontWeight: isHighest ? FontWeight.bold : FontWeight.normal,
           ),
         ),

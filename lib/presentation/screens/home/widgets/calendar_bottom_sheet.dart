@@ -29,21 +29,15 @@ class _CalendarBottomSheetState extends State<CalendarBottomSheet> {
         );
 
     return Container(
-      height: MediaQuery.of(context).size.height * 0.9,
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.of(context).size.height * 0.85,
+      ),
       decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface),
       child: Padding(
         padding: CommonPadding.md,
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              width: 40,
-              height: 5,
-              decoration: BoxDecoration(
-                color: ColorScheme.of(context).onSurface,
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            CommonSizedBox.heightXl,
             const _CalendarHeader(),
             CommonSizedBox.heightXl,
             TableCalendar(
@@ -132,16 +126,26 @@ class _CalendarBottomSheetState extends State<CalendarBottomSheet> {
               ),
             ),
             CommonSizedBox.heightLg,
-            Expanded(
-              child: SafeArea(
+            if (timelineEntries.isEmpty)
+              SafeArea(
                 child: TimelineList(
                   entries: timelineEntries,
                   selectedDate: selectedDate,
                   isSelectedDateInFuture: isSelectedDateInFuture,
                   isCompact: false,
                 ),
+              )
+            else
+              Flexible(
+                child: SafeArea(
+                  child: TimelineList(
+                    entries: timelineEntries,
+                    selectedDate: selectedDate,
+                    isSelectedDateInFuture: isSelectedDateInFuture,
+                    isCompact: false,
+                  ),
+                ),
               ),
-            ),
           ],
         ),
       ),

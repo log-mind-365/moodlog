@@ -140,49 +140,54 @@ class _CheckInScreenContent extends StatelessWidget {
           ).scale(),
         ],
       ),
-      body: Row(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          MoodBar(moodType: checkIn.moodType),
-          Expanded(
-            child: ListView(
-              children: [
-                HeroMoodBanner(checkIn: checkIn),
-                Padding(
-                  padding: CommonPadding.xl,
-                  child: Column(
-                    children: [
-                      FadeIn(
-                        delay: DelayMS.medium,
-                        child: _buildEmotionsSection(context, checkIn),
+      body: SingleChildScrollView(
+        child: IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              MoodBar(moodType: checkIn.moodType),
+              Expanded(
+                child: Column(
+                  children: [
+                    HeroMoodBanner(checkIn: checkIn),
+                    Padding(
+                      padding: CommonPadding.xl,
+                      child: Column(
+                        children: [
+                          FadeIn(
+                            delay: DelayMS.medium,
+                            child: _buildEmotionsSection(context, checkIn),
+                          ),
+                          CommonSizedBox.heightMd,
+                          FadeIn(
+                            delay: DelayMS.medium * 2,
+                            child: _buildActivitiesSection(context, checkIn),
+                          ),
+                          if (checkIn.sleepQuality != null) ...[
+                            CommonSizedBox.heightMd,
+                            FadeIn(
+                              delay: DelayMS.medium * 3,
+                              child: _buildSleepQualitySection(context, checkIn),
+                            ),
+                          ],
+                          if (checkIn.memo != null &&
+                              checkIn.memo!.isNotEmpty) ...[
+                            CommonSizedBox.heightMd,
+                            FadeIn(
+                              delay: DelayMS.medium * 4,
+                              child: _buildMemoSection(context, checkIn),
+                            ),
+                          ],
+                          CommonSizedBox.heightMd,
+                        ],
                       ),
-                      CommonSizedBox.heightMd,
-                      FadeIn(
-                        delay: DelayMS.medium * 2,
-                        child: _buildActivitiesSection(context, checkIn),
-                      ),
-                      if (checkIn.sleepQuality != null) ...[
-                        CommonSizedBox.heightMd,
-                        FadeIn(
-                          delay: DelayMS.medium * 3,
-                          child: _buildSleepQualitySection(context, checkIn),
-                        ),
-                      ],
-                      if (checkIn.memo != null && checkIn.memo!.isNotEmpty) ...[
-                        CommonSizedBox.heightMd,
-                        FadeIn(
-                          delay: DelayMS.medium * 4,
-                          child: _buildMemoSection(context, checkIn),
-                        ),
-                      ],
-                      CommonSizedBox.heightMd,
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

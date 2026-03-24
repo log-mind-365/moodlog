@@ -67,11 +67,12 @@ class _EmotionChip extends StatelessWidget {
       colorScheme.primary,
       colorScheme.secondary,
       colorScheme.tertiary,
-      colorScheme.primaryContainer,
-      colorScheme.secondaryContainer,
+      colorScheme.primary.withValues(alpha: 0.7),
+      colorScheme.secondary.withValues(alpha: 0.7),
     ];
 
     final color = colors[rank - 1];
+    final isTop3 = rank <= 3;
 
     return Container(
       padding: const EdgeInsets.symmetric(
@@ -79,21 +80,22 @@ class _EmotionChip extends StatelessWidget {
         vertical: Spacing.sm,
       ),
       decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.15),
-        borderRadius: BorderRadius.circular(Roundness.cardInner),
+        color: color.withValues(alpha: isTop3 ? 0.12 : 0.06),
+        borderRadius: BorderRadius.circular(Roundness.xl),
         border: Border.all(
-          color: color.withValues(alpha: 0.3),
-          width: 1,
+          color: color.withValues(alpha: 0.2),
         ),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 24,
-            height: 24,
+            width: 22,
+            height: 22,
             decoration: BoxDecoration(
-              color: color,
+              gradient: LinearGradient(
+                colors: [color, color.withValues(alpha: 0.7)],
+              ),
               shape: BoxShape.circle,
             ),
             child: Center(
@@ -102,15 +104,15 @@ class _EmotionChip extends StatelessWidget {
                 style: textTheme.labelSmall?.copyWith(
                   color: colorScheme.onPrimary,
                   fontWeight: FontWeight.bold,
+                  fontSize: 10,
                 ),
               ),
             ),
           ),
-          const SizedBox(width: Spacing.sm),
+          CommonSizedBox.widthSm,
           Text(
             emotion,
             style: textTheme.bodyMedium?.copyWith(
-              color: color,
               fontWeight: FontWeight.w600,
             ),
           ),
