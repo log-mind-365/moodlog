@@ -29,16 +29,44 @@ class _StatisticsScreenContentState extends State<_StatisticsScreenContent>
       (vm) => vm.isLoading,
     );
 
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(t.tab_statistics),
-        bottom: TabBar(
-          controller: _tabController,
-          tabs: [
-            Tab(text: t.statistics_weekly),
-            Tab(text: t.statistics_monthly),
-            Tab(text: t.statistics_yearly),
-          ],
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(48),
+          child: Padding(
+            padding: Spacing.containerHorizontalPadding,
+            child: Container(
+              height: 40,
+              decoration: BoxDecoration(
+                color: colorScheme.surfaceContainerHighest.withValues(
+                  alpha: 0.5,
+                ),
+                borderRadius: BorderRadius.circular(Roundness.button),
+              ),
+              child: TabBar(
+                controller: _tabController,
+                indicator: BoxDecoration(
+                  color: colorScheme.primary,
+                  borderRadius: BorderRadius.circular(Roundness.button),
+                ),
+                indicatorSize: TabBarIndicatorSize.tab,
+                labelColor: colorScheme.onPrimary,
+                unselectedLabelColor: colorScheme.onSurfaceVariant,
+                labelStyle: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
+                dividerHeight: 0,
+                tabs: [
+                  Tab(text: t.statistics_weekly),
+                  Tab(text: t.statistics_monthly),
+                  Tab(text: t.statistics_yearly),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
       body: isLoading

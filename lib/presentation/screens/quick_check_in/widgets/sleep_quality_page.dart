@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moodlog/core/constants/common.dart';
 import 'package:moodlog/core/l10n/app_localizations.dart';
 import 'package:moodlog/presentation/screens/quick_check_in/quick_check_in_view_model.dart';
+import 'package:moodlog/presentation/theme/colors.dart';
 import 'package:provider/provider.dart';
 
 class SleepQualityPage extends StatefulWidget {
@@ -62,9 +63,9 @@ class SleepQualityPageState extends State<SleepQualityPage>
     final colorScheme = Theme.of(context).colorScheme;
     switch (quality) {
       case 1:
-        return Colors.red;
+        return colorScheme.error;
       case 2:
-        return Colors.orange;
+        return AppColors.warningColor;
       case 3:
         return colorScheme.secondary;
       case 4:
@@ -181,13 +182,7 @@ class SleepQualityPageState extends State<SleepQualityPage>
             width: double.infinity,
             child: FilledButton(
               onPressed: widget.onNext,
-              child: Text(
-                t.quick_check_in_next,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.onPrimary,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
+              child: Text(t.quick_check_in_next),
             ),
           ),
           CommonSizedBox.heightMd,

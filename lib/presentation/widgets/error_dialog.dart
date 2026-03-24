@@ -55,12 +55,12 @@ class ErrorDialog extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.all(12),
+                  padding: CommonPadding.md,
                   decoration: BoxDecoration(
                     color: Theme.of(
                       context,
                     ).colorScheme.surfaceContainerHighest,
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(Roundness.sm),
                   ),
                   child: Text(
                     errorDetails!,

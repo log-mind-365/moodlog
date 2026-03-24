@@ -29,6 +29,7 @@ class WeeklySummaryCard extends StatelessWidget {
       title: t.statistics_weekly_summary,
       icon: Icons.calendar_view_week,
       child: Row(
+        spacing: Spacing.md,
         children: [
           Expanded(
             child: _SummaryItem(
@@ -38,11 +39,6 @@ class WeeklySummaryCard extends StatelessWidget {
               color: colorScheme.primary,
             ),
           ),
-          Container(
-            width: 1,
-            height: 60,
-            color: colorScheme.outlineVariant,
-          ),
           Expanded(
             child: _SummaryItem(
               label: t.statistics_weekly_avg_mood,
@@ -50,11 +46,6 @@ class WeeklySummaryCard extends StatelessWidget {
               icon: Icons.sentiment_satisfied_alt,
               color: colorScheme.secondary,
             ),
-          ),
-          Container(
-            width: 1,
-            height: 60,
-            color: colorScheme.outlineVariant,
           ),
           Expanded(
             child: _SummaryItem(
@@ -91,31 +82,41 @@ class _SummaryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
-    return Column(
-      children: [
-        Icon(icon, color: color, size: 24),
-        CommonSizedBox.heightSm,
-        Text(
-          value,
-          style:
-              valueStyle ??
-              textTheme.headlineMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: color,
-              ),
-        ),
-        CommonSizedBox.heightXs,
-        Text(
-          label,
-          style: textTheme.bodySmall?.copyWith(
-            color: color.withValues(alpha: 0.7),
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        vertical: Spacing.lg,
+        horizontal: Spacing.sm,
+      ),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.08),
+        borderRadius: BorderRadius.circular(Roundness.cardInner),
+        border: Border.all(color: color.withValues(alpha: 0.15)),
+      ),
+      child: Column(
+        children: [
+          Text(
+            value,
+            style:
+                valueStyle ??
+                textTheme.headlineMedium?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: color,
+                ),
           ),
-          textAlign: TextAlign.center,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-        ),
-      ],
+          CommonSizedBox.heightXs,
+          Text(
+            label,
+            style: textTheme.labelSmall?.copyWith(
+              color: colorScheme.onSurfaceVariant,
+            ),
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ],
+      ),
     );
   }
 }

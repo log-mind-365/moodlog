@@ -38,10 +38,10 @@ class MoodDistributionCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _buildTotalResult(context, viewModel),
-          const SizedBox(height: Spacing.lg),
+          CommonSizedBox.heightLg,
           _buildChart(context, sections),
-          const SizedBox(height: Spacing.lg),
-          _buildDistribution(context, viewModel),
+          CommonSizedBox.heightLg,
+          _buildDistribution(context, viewModel, totalCount),
         ],
       ),
     );
@@ -59,7 +59,7 @@ class MoodDistributionCard extends StatelessWidget {
       value: count.toDouble(),
       title: '${percentage.toStringAsFixed(1)}%',
       radius: 50,
-      titleStyle: textTheme.bodyMedium?.copyWith(color: Colors.black87),
+      titleStyle: textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onSurface),
       badgeWidget: Text(moodType.emoji, style: const TextStyle(fontSize: 20)),
       badgePositionPercentageOffset: .98,
     );
@@ -68,6 +68,7 @@ class MoodDistributionCard extends StatelessWidget {
   Widget _buildDistribution(
     BuildContext context,
     StatisticsViewModel viewModel,
+    int totalCount,
   ) {
     final colorScheme = Theme.of(context).colorScheme;
     return Container(
@@ -79,10 +80,13 @@ class MoodDistributionCard extends StatelessWidget {
       child: Column(
         children: MoodType.values.map((moodType) {
           final count = viewModel.moodCounts[moodType] ?? 0;
+          final percentage =
+              totalCount > 0 ? (count / totalCount) * 100 : 0.0;
           return MoodDistributionItem(
             mood: moodType.getDisplayName(context),
             count: count,
             color: Color(moodType.colorValue),
+            percentage: percentage,
           );
         }).toList(),
       ),
@@ -156,7 +160,7 @@ class MoodDistributionCard extends StatelessWidget {
                   size: 64,
                   color: colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
                 ),
-                const SizedBox(height: Spacing.md),
+                CommonSizedBox.heightMd,
                 Text(
                   t.statistics_mood_distribution_empty,
                   style: textTheme.bodyMedium?.copyWith(

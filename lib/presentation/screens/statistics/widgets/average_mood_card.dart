@@ -5,6 +5,7 @@ import 'package:moodlog/core/extensions/localization.dart';
 import 'package:moodlog/core/l10n/app_localizations.dart';
 import 'package:moodlog/presentation/screens/statistics/statistics_view_model.dart';
 import 'package:moodlog/presentation/screens/statistics/widgets/base_card.dart';
+import 'package:moodlog/presentation/theme/colors.dart';
 import 'package:provider/provider.dart';
 
 class AverageMoodCard extends StatelessWidget {
@@ -82,14 +83,14 @@ class AverageMoodCard extends StatelessWidget {
             averageMoodColor: averageMoodColor,
             averageScore: averageScore,
           ),
-          const SizedBox(height: Spacing.lg),
+          CommonSizedBox.heightLg,
           _buildContent(
             context,
             mostFrequentMood: mostFrequentMood,
             averageScore: averageScore,
             recentMoods: recentMoods,
           ),
-          const SizedBox(height: Spacing.md),
+          CommonSizedBox.heightMd,
           _buildMoodDistribution(context, averageScore: averageScore),
         ],
       ),
@@ -111,7 +112,7 @@ class AverageMoodCard extends StatelessWidget {
       child: Column(
         children: [
           Text(dominantMood.emoji, style: const TextStyle(fontSize: 48)),
-          const SizedBox(height: Spacing.sm),
+          CommonSizedBox.heightSm,
           Text(
             averageMoodText,
             style: textTheme.titleLarge?.copyWith(
@@ -157,9 +158,9 @@ class AverageMoodCard extends StatelessWidget {
         : Icons.trending_flat;
 
     final trendColor = recentAverage > averageScore
-        ? Colors.green
+        ? AppColors.positiveColor
         : recentAverage < averageScore
-        ? Colors.red
+        ? colorScheme.error
         : colorScheme.onSurfaceVariant;
 
     return Container(
@@ -185,7 +186,7 @@ class AverageMoodCard extends StatelessWidget {
                     mostFrequentMood.emoji,
                     style: const TextStyle(fontSize: 16),
                   ),
-                  const SizedBox(width: Spacing.xs),
+                  CommonSizedBox.widthXs,
                   Text(
                     mostFrequentMood.getDisplayName(context),
                     style: textTheme.bodyMedium?.copyWith(
@@ -196,7 +197,7 @@ class AverageMoodCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: Spacing.sm),
+          CommonSizedBox.heightSm,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -209,7 +210,7 @@ class AverageMoodCard extends StatelessWidget {
               Row(
                 children: [
                   Icon(trendIcon, color: trendColor, size: 16),
-                  const SizedBox(width: Spacing.xs),
+                  CommonSizedBox.widthXs,
                   Text(
                     trendIndicator,
                     style: textTheme.bodyMedium?.copyWith(
@@ -238,23 +239,23 @@ class AverageMoodCard extends StatelessWidget {
         width: double.infinity,
         padding: const EdgeInsets.all(Spacing.lg),
         decoration: BoxDecoration(
-          color: Colors.green.withValues(alpha: 0.1),
+          color: AppColors.positiveColor.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(Roundness.cardInner),
-          border: Border.all(color: Colors.green.withValues(alpha: 0.3)),
+          border: Border.all(color: AppColors.positiveColor.withValues(alpha: 0.3)),
         ),
         child: Row(
           children: [
             const Icon(
               Icons.sentiment_very_satisfied,
-              color: Colors.green,
+              color: AppColors.positiveColor,
               size: 20,
             ),
-            const SizedBox(width: Spacing.sm),
+            CommonSizedBox.widthSm,
             Expanded(
               child: Text(
                 t.statistics_mood_positive_message,
                 style: textTheme.bodyMedium?.copyWith(
-                  color: Colors.green,
+                  color: AppColors.positiveColor,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -267,23 +268,23 @@ class AverageMoodCard extends StatelessWidget {
         width: double.infinity,
         padding: const EdgeInsets.all(Spacing.lg),
         decoration: BoxDecoration(
-          color: Colors.orange.withValues(alpha: 0.1),
+          color: AppColors.warningColor.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(Roundness.cardInner),
-          border: Border.all(color: Colors.orange.withValues(alpha: 0.3)),
+          border: Border.all(color: AppColors.warningColor.withValues(alpha: 0.3)),
         ),
         child: Row(
           children: [
             const Icon(
               Icons.sentiment_dissatisfied,
-              color: Colors.orange,
+              color: AppColors.warningColor,
               size: 20,
             ),
-            const SizedBox(width: Spacing.sm),
+            CommonSizedBox.widthSm,
             Expanded(
               child: Text(
                 t.statistics_mood_negative_message,
                 style: textTheme.bodyMedium?.copyWith(
-                  color: Colors.orange,
+                  color: AppColors.warningColor,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -308,7 +309,7 @@ class AverageMoodCard extends StatelessWidget {
             size: 64,
             color: colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
           ),
-          const SizedBox(height: Spacing.lg),
+          CommonSizedBox.heightLg,
           Text(
             t.statistics_mood_distribution_empty,
             style: textTheme.bodyMedium?.copyWith(

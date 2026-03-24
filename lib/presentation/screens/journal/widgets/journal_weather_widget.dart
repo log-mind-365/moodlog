@@ -98,7 +98,7 @@ class _JournalWeatherWidgetState extends State<JournalWeatherWidget> {
       padding: const EdgeInsets.all(Spacing.sm),
       decoration: BoxDecoration(
         color: colorScheme.surfaceContainer,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(Roundness.md),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -111,7 +111,7 @@ class _JournalWeatherWidgetState extends State<JournalWeatherWidget> {
               color: colorScheme.primary,
             ),
           ),
-          const SizedBox(width: Spacing.sm),
+          CommonSizedBox.widthSm,
           Text(
             '날씨 정보 로딩중...',
             style: textTheme.bodySmall?.copyWith(
@@ -129,20 +129,20 @@ class _JournalWeatherWidgetState extends State<JournalWeatherWidget> {
       padding: const EdgeInsets.all(Spacing.sm),
       decoration: BoxDecoration(
         color: colorScheme.surfaceContainer,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(Roundness.md),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(Icons.cloud_off, size: 16, color: colorScheme.onSurfaceVariant),
-          const SizedBox(width: Spacing.sm),
+          CommonSizedBox.widthSm,
           Text(
             '날씨 정보 불러오기 실패',
             style: textTheme.bodySmall?.copyWith(
               color: colorScheme.onSurfaceVariant,
             ),
           ),
-          const SizedBox(width: Spacing.xs),
+          CommonSizedBox.widthXs,
           GestureDetector(
             onTap: _loadWeather,
             child: Icon(Icons.refresh, size: 14, color: colorScheme.primary),
@@ -161,13 +161,13 @@ class _JournalWeatherWidgetState extends State<JournalWeatherWidget> {
       padding: const EdgeInsets.all(Spacing.sm),
       decoration: BoxDecoration(
         color: colorScheme.surfaceContainer,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(Roundness.md),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(condition.icon, style: const TextStyle(fontSize: 20)),
-          const SizedBox(width: Spacing.xs),
+          CommonSizedBox.widthXs,
           Text(
             '${_weatherInfo!.temperature.round()}°C',
             style: textTheme.bodyMedium?.copyWith(
@@ -175,7 +175,7 @@ class _JournalWeatherWidgetState extends State<JournalWeatherWidget> {
               color: colorScheme.onSurface,
             ),
           ),
-          const SizedBox(width: Spacing.xs),
+          CommonSizedBox.widthXs,
           Text(
             _weatherInfo!.description,
             style: textTheme.bodySmall?.copyWith(
@@ -183,7 +183,7 @@ class _JournalWeatherWidgetState extends State<JournalWeatherWidget> {
             ),
           ),
           if (widget.address != null) ...[
-            const SizedBox(width: Spacing.xs),
+            CommonSizedBox.widthXs,
             Icon(
               Icons.location_on_outlined,
               size: 12,

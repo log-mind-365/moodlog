@@ -25,39 +25,51 @@ class BaseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final effectiveTitleColor =
-        titleColor ?? Theme.of(context).colorScheme.primary;
-    final effectiveIconColor =
-        iconColor ?? Theme.of(context).colorScheme.primary;
+    final colorScheme = Theme.of(context).colorScheme;
+    final effectiveTitleColor = titleColor ?? colorScheme.onSurface;
+    final effectiveIconColor = iconColor ?? colorScheme.primary;
     final effectiveBackgroundColor =
-        backgroundColor ?? Theme.of(context).colorScheme.surfaceContainer;
-    final effectivePadding = padding ?? CommonPadding.lg;
+        backgroundColor ?? colorScheme.surfaceContainer;
+    final effectivePadding = padding ?? CommonPadding.xl;
 
     return Container(
       decoration: BoxDecoration(
         color: effectiveBackgroundColor,
         borderRadius: BorderRadius.circular(Roundness.card),
+        border: Border.all(
+          color: colorScheme.outlineVariant.withValues(alpha: 0.3),
+        ),
       ),
       child: Padding(
         padding: effectivePadding,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (showHeader) ...[
               Row(
                 children: [
-                  Icon(icon, color: effectiveIconColor, size: 20),
-                  CommonSizedBox.widthSm,
+                  Container(
+                    padding: const EdgeInsets.all(Spacing.sm),
+                    decoration: BoxDecoration(
+                      color: effectiveIconColor.withValues(alpha: 0.1),
+                      borderRadius: BorderRadius.circular(Roundness.button),
+                    ),
+                    child: Icon(icon, color: effectiveIconColor, size: 18),
+                  ),
+                  CommonSizedBox.widthMd,
                   Expanded(
                     child: Text(
                       title,
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: effectiveTitleColor,
-                      ),
+                      style:
+                          Theme.of(context).textTheme.titleMedium?.copyWith(
+                            color: effectiveTitleColor,
+                            fontWeight: FontWeight.w600,
+                          ),
                     ),
                   ),
                 ],
               ),
-              CommonSizedBox.heightLg,
+              CommonSizedBox.heightXl,
             ],
             child,
           ],

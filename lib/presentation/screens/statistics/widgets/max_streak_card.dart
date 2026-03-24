@@ -36,7 +36,7 @@ class MaxStreakCard extends StatelessWidget {
             isPersonalRecord: isPersonalRecord,
           ),
           if (maxStreak > 0) ...[
-            const SizedBox(height: Spacing.lg),
+            CommonSizedBox.heightLg,
             Container(
               padding: const EdgeInsets.all(Spacing.lg),
               decoration: BoxDecoration(
@@ -64,15 +64,19 @@ class MaxStreakCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: Spacing.sm),
-                  LinearProgressIndicator(
-                    value: progressPercentage,
-                    backgroundColor: colorScheme.surfaceContainerHighest,
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      colorScheme.tertiary,
+                  CommonSizedBox.heightSm,
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(4),
+                    child: LinearProgressIndicator(
+                      value: progressPercentage,
+                      minHeight: 6,
+                      backgroundColor: colorScheme.surfaceContainerHighest,
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        colorScheme.tertiary,
+                      ),
                     ),
                   ),
-                  const SizedBox(height: Spacing.sm),
+                  CommonSizedBox.heightSm,
                   if (!isPersonalRecord) ...[
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -100,7 +104,7 @@ class MaxStreakCard extends StatelessWidget {
             ),
           ],
           if (maxStreak >= 7) ...[
-            const SizedBox(height: Spacing.md),
+            CommonSizedBox.heightMd,
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(Spacing.lg),
@@ -118,7 +122,7 @@ class MaxStreakCard extends StatelessWidget {
                     color: colorScheme.tertiary,
                     size: 20,
                   ),
-                  const SizedBox(width: Spacing.sm),
+                  CommonSizedBox.widthSm,
                   Expanded(
                     child: Text(
                       maxStreak >= 30
@@ -165,7 +169,7 @@ class MaxStreakCard extends StatelessWidget {
                   color: colorScheme.tertiary,
                 ),
               ),
-              const SizedBox(width: Spacing.xs),
+              CommonSizedBox.widthXs,
               Text(
                 t.common_unit_day,
                 style: textTheme.titleLarge?.copyWith(
@@ -176,7 +180,7 @@ class MaxStreakCard extends StatelessWidget {
             ],
           ),
           if (isPersonalRecord) ...[
-            const SizedBox(height: Spacing.xs),
+            CommonSizedBox.heightXs,
             Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: Spacing.sm,
@@ -190,7 +194,7 @@ class MaxStreakCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(Icons.star, size: 16, color: colorScheme.tertiary),
-                  const SizedBox(width: Spacing.xs),
+                  CommonSizedBox.widthXs,
                   Text(
                     t.statistics_max_streak_new_record,
                     style: textTheme.bodySmall?.copyWith(

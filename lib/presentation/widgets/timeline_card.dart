@@ -24,31 +24,62 @@ class TimelineCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final isCheckIn = entry.type.isCheckIn;
 
-    return InkWell(
-      onTap: onTap,
-      onLongPress: onLongPress,
-      borderRadius: BorderRadius.circular(Roundness.card),
-      child: Container(
-        clipBehavior: Clip.hardEdge,
-        decoration: BoxDecoration(
-          color: isCheckIn
-              ? Colors.transparent
-              : Theme.of(context).colorScheme.surfaceContainer,
-          borderRadius: BorderRadius.circular(Roundness.card),
-          border: isSelected
-              ? Border.all(
-                  color: Theme.of(context).colorScheme.primary,
-                  width: 2,
-                )
-              : null,
+    if (isCheckIn) {
+      return InkWell(
+        onTap: onTap,
+        onLongPress: onLongPress,
+        borderRadius: BorderRadius.circular(Roundness.card),
+        child: Container(
+          clipBehavior: Clip.hardEdge,
+          decoration: BoxDecoration(
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(Roundness.card),
+            border: isSelected
+                ? Border.all(
+                    color: Theme.of(context).colorScheme.primary,
+                    width: 2,
+                  )
+                : null,
+          ),
+          child: Stack(
+            children: [
+              Padding(
+                padding: CommonPadding.xl,
+                child: _buildCheckInContent(context),
+              ),
+              if (isSelectable)
+                Positioned(
+                  top: Spacing.sm,
+                  right: Spacing.sm,
+                  child: IgnorePointer(
+                    child: Checkbox(value: isSelected, onChanged: null),
+                  ),
+                ),
+            ],
+          ),
         ),
+      ).scale();
+    }
+
+    return Card(
+      shape: isSelected
+          ? RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(Roundness.card),
+              side: BorderSide(
+                color: Theme.of(context).colorScheme.primary,
+                width: 2,
+              ),
+            )
+          : null,
+      child: InkWell(
+        onTap: onTap,
+        onLongPress: onLongPress,
+        borderRadius: BorderRadius.circular(Roundness.card),
         child: Stack(
           children: [
             Padding(
               padding: CommonPadding.xl,
-              child: entry.type.isCheckIn
-                  ? _buildCheckInContent(context)
-                  : _buildJournalContent(context),
+              child: _buildJournalContent(context),
             ),
             if (isSelectable)
               Positioned(

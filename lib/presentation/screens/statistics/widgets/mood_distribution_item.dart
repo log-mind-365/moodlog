@@ -6,37 +6,62 @@ class MoodDistributionItem extends StatelessWidget {
   final String mood;
   final int count;
   final Color color;
+  final double percentage;
 
   const MoodDistributionItem({
     super.key,
     required this.mood,
     required this.count,
     required this.color,
+    this.percentage = 0,
   });
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: Spacing.xs),
-      child: Row(
+      padding: const EdgeInsets.symmetric(vertical: Spacing.xs),
+      child: Column(
         children: [
-          Container(
-            width: 16,
-            height: 16,
-            decoration: BoxDecoration(
-              color: color,
-              borderRadius: BorderRadius.circular(Spacing.sm),
-            ),
+          Row(
+            children: [
+              Container(
+                width: 12,
+                height: 12,
+                decoration: BoxDecoration(
+                  color: color,
+                  shape: BoxShape.circle,
+                ),
+              ),
+              CommonSizedBox.widthSm,
+              Expanded(
+                child: Text(
+                  mood,
+                  style: textTheme.bodyMedium,
+                ),
+              ),
+              Text(
+                AppLocalizations.of(
+                  context,
+                )!.statistics_mood_distribution_unit(count),
+                style: textTheme.bodySmall?.copyWith(
+                  fontWeight: FontWeight.w600,
+                  color: colorScheme.onSurfaceVariant,
+                ),
+              ),
+            ],
           ),
-          const SizedBox(width: Spacing.md),
-          Expanded(child: Text(mood)),
-          Text(
-            AppLocalizations.of(
-              context,
-            )!.statistics_mood_distribution_unit(count),
-            style: Theme.of(
-              context,
-            ).textTheme.bodySmall?.copyWith(fontWeight: FontWeight.bold),
+          CommonSizedBox.heightXs,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(4),
+            child: LinearProgressIndicator(
+              value: percentage / 100,
+              minHeight: 4,
+              backgroundColor: colorScheme.surfaceContainerHighest,
+              valueColor: AlwaysStoppedAnimation<Color>(color),
+            ),
           ),
         ],
       ),

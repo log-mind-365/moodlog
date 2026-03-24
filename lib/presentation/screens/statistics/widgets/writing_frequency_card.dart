@@ -79,21 +79,21 @@ class WritingFrequencyCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _buildThisWeekFrequency(context, weeklyEntries),
-          const SizedBox(height: Spacing.lg),
+          CommonSizedBox.heightLg,
           Row(
             children: [
               _buildWeeklyAverage(context, weeklyAverage),
-              const SizedBox(width: Spacing.md),
+              CommonSizedBox.widthMd,
               _buildMonthlyAverage(context, monthlyAverage),
             ],
           ),
-          const SizedBox(height: Spacing.lg),
+          CommonSizedBox.heightLg,
           _buildFrequencyTime(
             context,
             mostActiveHour: mostActiveHour,
             mostActiveWeekday: mostActiveWeekday,
           ),
-          const SizedBox(height: Spacing.md),
+          CommonSizedBox.heightMd,
           _buildFallback(context, weeklyEntries),
         ],
       ),
@@ -203,7 +203,7 @@ class WritingFrequencyCard extends StatelessWidget {
                 color: colorScheme.onSurfaceVariant,
               ),
             ),
-            const SizedBox(height: Spacing.xs),
+            CommonSizedBox.heightXs,
             Text(
               t.statistics_writing_frequency_weekly_count(
                 weeklyAverage.toStringAsFixed(1),
@@ -238,7 +238,7 @@ class WritingFrequencyCard extends StatelessWidget {
                 color: colorScheme.onSurfaceVariant,
               ),
             ),
-            const SizedBox(height: Spacing.xs),
+            CommonSizedBox.heightXs,
             Text(
               t.statistics_writing_frequency_monthly_count(
                 monthlyAverage.toStringAsFixed(1),
@@ -295,7 +295,7 @@ class WritingFrequencyCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: Spacing.sm),
+          CommonSizedBox.heightSm,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -347,7 +347,7 @@ class WritingFrequencyCard extends StatelessWidget {
         child: Row(
           children: [
             const Icon(Icons.star, color: Colors.green, size: 20),
-            const SizedBox(width: Spacing.sm),
+            CommonSizedBox.widthSm,
             Expanded(
               child: Text(
                 t.statistics_writing_frequency_good_habit,
@@ -372,7 +372,7 @@ class WritingFrequencyCard extends StatelessWidget {
         child: Row(
           children: [
             const Icon(Icons.lightbulb_outline, color: Colors.blue, size: 20),
-            const SizedBox(width: Spacing.sm),
+            CommonSizedBox.widthSm,
             Expanded(
               child: Text(
                 t.statistics_writing_frequency_encouragement,

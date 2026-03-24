@@ -41,7 +41,7 @@ class _HomeFloatingActionButtonState extends State<HomeFloatingActionButton>
       PageRouteBuilder(
         opaque: false,
         barrierDismissible: true,
-        barrierColor: Colors.black.withValues(alpha: 0.75),
+        barrierColor: Theme.of(context).colorScheme.scrim.withValues(alpha: 0.75),
         pageBuilder: (context, animation, secondaryAnimation) {
           return FadeTransition(
             opacity: animation,
@@ -82,6 +82,7 @@ class _FloatingActionOverlay extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             _buildActionButton(
+              context: context,
               icon: Icons.bolt,
               label: t.home_button_quick_check_in,
               onPressed: () {
@@ -91,6 +92,7 @@ class _FloatingActionOverlay extends StatelessWidget {
             ),
             CommonSizedBox.heightSm,
             _buildActionButton(
+              context: context,
               icon: Icons.create,
               label: t.home_button_write_journal,
               onPressed: () {
@@ -110,10 +112,12 @@ class _FloatingActionOverlay extends StatelessWidget {
   }
 
   Widget _buildActionButton({
+    required BuildContext context,
     required IconData icon,
     required String label,
     required VoidCallback onPressed,
   }) {
+    final colorScheme = Theme.of(context).colorScheme;
     return InkWell(
       onTap: onPressed,
       child: Row(
@@ -122,7 +126,7 @@ class _FloatingActionOverlay extends StatelessWidget {
         children: [
           Text(
             label,
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w500,
             ),
@@ -130,10 +134,10 @@ class _FloatingActionOverlay extends StatelessWidget {
           CommonSizedBox.widthSm,
           Ink(
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: colorScheme.inverseSurface,
               borderRadius: BorderRadius.circular(Roundness.md),
             ),
-            child: Padding(padding: CommonPadding.sm, child: Icon(icon, color: Colors.black,)),
+            child: Padding(padding: CommonPadding.sm, child: Icon(icon, color: colorScheme.onInverseSurface)),
           ),
         ],
       ),

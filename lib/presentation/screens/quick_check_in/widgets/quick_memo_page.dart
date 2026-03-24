@@ -107,13 +107,7 @@ class QuickMemoPageState extends State<QuickMemoPage>
                       height: 20,
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
-                  : Text(
-                      t.quick_check_in_submit,
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: Theme.of(context).colorScheme.onPrimary,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                  : Text(t.quick_check_in_submit),
             ),
           ),
           CommonSizedBox.heightXl,

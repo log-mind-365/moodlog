@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moodlog/core/constants/common.dart';
 import 'package:moodlog/core/l10n/app_localizations.dart';
 
 class ContentInput extends StatefulWidget {
@@ -26,10 +27,10 @@ class _ContentInputState extends State<ContentInput> {
       height: 250,
       decoration: BoxDecoration(
         color: colorScheme.surfaceContainer,
-        borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+        borderRadius: BorderRadius.circular(Roundness.cardInner),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: CommonPadding.lg,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -39,7 +40,7 @@ class _ContentInputState extends State<ContentInput> {
                 color: colorScheme.onSurfaceVariant,
               ),
             ),
-            const SizedBox(height: 8),
+            CommonSizedBox.heightSm,
             Expanded(
               child: TextField(
                 controller: widget.textEditingController,
