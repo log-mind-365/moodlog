@@ -3,6 +3,7 @@ import 'package:moodlog/core/constants/common.dart';
 import 'package:moodlog/core/l10n/app_localizations.dart';
 import 'package:moodlog/presentation/screens/home/home_view_model.dart';
 import 'package:moodlog/presentation/screens/home/widgets/edit_nickname_bottom_sheet.dart';
+import 'package:moodlog/presentation/widgets/touchable_opacity.dart';
 import 'package:provider/provider.dart';
 
 class WelcomeZone extends StatelessWidget {
@@ -27,26 +28,22 @@ class WelcomeZone extends StatelessWidget {
       children: [
         Row(
           children: [
-            InkWell(
+            TouchableOpacity(
               onTap: () => _showEditNicknameSheet(context, nickname ?? ''),
-              borderRadius: BorderRadius.circular(Roundness.sm),
-              child: Padding(
-                padding: CommonPadding.sm,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      t.home_welcome(nickname ?? ''),
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    CommonSizedBox.widthXs,
-                    Icon(
-                      Icons.edit,
-                      size: 16,
-                      color: Theme.of(context).colorScheme.outline,
-                    ),
-                  ],
-                ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    t.home_welcome(nickname ?? ''),
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  CommonSizedBox.widthXs,
+                  Icon(
+                    Icons.edit,
+                    size: 16,
+                    color: Theme.of(context).colorScheme.outline,
+                  ),
+                ],
               ),
             ),
             CommonSizedBox.widthMd,

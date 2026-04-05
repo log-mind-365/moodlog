@@ -12,23 +12,14 @@
 		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		40BC72E12F871F32153B725A /* developmentLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 629BD6D15AE621F10062B81A /* developmentLaunchScreen.storyboard */; };
-		63C2142909998EA1080686B1 /* productionDebug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F9C1881C6F83885401D2191A /* productionDebug.xcconfig */; };
 		7286EEA5B76DC97BE5B8018F /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0C25F8069BE39E0866BA33 /* Pods_RunnerTests.framework */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
-		7F11F437370D3FC6390285DB /* developmentProfile.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D964B651ED5FD6C3DA1E5237 /* developmentProfile.xcconfig */; };
 		8437F4E5C164264F7F3A14A6 /* productionLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F91B1D9EEC37941626D1DE4 /* productionLaunchScreen.storyboard */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
-		9C792AFAF85CB2CD0AF4874C /* developmentRelease.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F362A09AEF763D307417CD79 /* developmentRelease.xcconfig */; };
-		A97069F35CF6F18CD22515D0 /* stagingDebug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 78B6EE58D32E6E6FE1593D68 /* stagingDebug.xcconfig */; };
-		BDE6A4EA3DDA3EB860C625D2 /* developmentDebug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = AB701C7642C17A6707FF64EF /* developmentDebug.xcconfig */; };
-		CABE637054AEC5E41402F40F /* stagingProfile.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D0C68FF94E364C7A04DD2295 /* stagingProfile.xcconfig */; };
 		CFEF8BD7B7834FA872F2A389 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7F935C8F1587EEB135112A /* Pods_Runner.framework */; };
-		D0BA34CC8B14782EDEC48230 /* stagingRelease.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2542CB774ABC397288DDF71F /* stagingRelease.xcconfig */; };
 		D1EE54FF935C8C826036FC01 /* stagingLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5FD3A76F9624468BD79F263 /* stagingLaunchScreen.storyboard */; };
-		D2371F8E41FAD8BBE31CFB50 /* productionRelease.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 86713F6C3EDAC5DC53910E97 /* productionRelease.xcconfig */; };
-		EC7C88DF4694ADFDA5BFBF2E /* productionProfile.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E1FB6A6DA2F8294BDF10EC88 /* productionProfile.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -352,17 +343,8 @@
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
-				BDE6A4EA3DDA3EB860C625D2 /* developmentDebug.xcconfig in Resources */,
-				7F11F437370D3FC6390285DB /* developmentProfile.xcconfig in Resources */,
-				9C792AFAF85CB2CD0AF4874C /* developmentRelease.xcconfig in Resources */,
-				63C2142909998EA1080686B1 /* productionDebug.xcconfig in Resources */,
-				EC7C88DF4694ADFDA5BFBF2E /* productionProfile.xcconfig in Resources */,
-				D2371F8E41FAD8BBE31CFB50 /* productionRelease.xcconfig in Resources */,
 				40BC72E12F871F32153B725A /* developmentLaunchScreen.storyboard in Resources */,
 				8437F4E5C164264F7F3A14A6 /* productionLaunchScreen.storyboard in Resources */,
-				A97069F35CF6F18CD22515D0 /* stagingDebug.xcconfig in Resources */,
-				CABE637054AEC5E41402F40F /* stagingProfile.xcconfig in Resources */,
-				D0BA34CC8B14782EDEC48230 /* stagingRelease.xcconfig in Resources */,
 				D1EE54FF935C8C826036FC01 /* stagingLaunchScreen.storyboard in Resources */,
 				0DC2F9AD490574B4AD1E3BFF /* GoogleService-Info.plist in Resources */,
 			);
@@ -612,6 +594,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.logmind.moodlog.dev;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -691,6 +674,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.logmind.moodlog.dev;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -701,6 +685,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F362A09AEF763D307417CD79 /* developmentRelease.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = F3383L6K8A;
 				GOOGLE_SCHEME = "com.googleusercontent.apps.761406625155-82etogalqujes2bna2gv4sfrrm0ctgl4";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -713,6 +698,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D964B651ED5FD6C3DA1E5237 /* developmentProfile.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = F3383L6K8A;
 				GOOGLE_SCHEME = "com.googleusercontent.apps.761406625155-82etogalqujes2bna2gv4sfrrm0ctgl4";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -725,6 +711,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2542CB774ABC397288DDF71F /* stagingRelease.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = F3383L6K8A;
 				GOOGLE_SCHEME = "com.googleusercontent.apps.761406625155-sjij099mp0blg070s5nror0lto9d1fbr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -868,6 +855,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.logmind.moodlog;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -940,6 +928,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.logmind.moodlog;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -994,6 +983,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -1008,11 +998,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = F3383L6K8A;
+				DEVELOPMENT_TEAM = F3383L6K8A;
 				ENABLE_BITCODE = NO;
 				GOOGLE_SCHEME = "";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -1024,7 +1012,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.logmind.moodlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "profile-moodlog";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1105,6 +1092,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.logmind.moodlog.staging;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1115,6 +1103,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 78B6EE58D32E6E6FE1593D68 /* stagingDebug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = F3383L6K8A;
 				GOOGLE_SCHEME = "com.googleusercontent.apps.761406625155-sjij099mp0blg070s5nror0lto9d1fbr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1177,6 +1166,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AB701C7642C17A6707FF64EF /* developmentDebug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = F3383L6K8A;
 				GOOGLE_SCHEME = "com.googleusercontent.apps.761406625155-82etogalqujes2bna2gv4sfrrm0ctgl4";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1189,6 +1179,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0C68FF94E364C7A04DD2295 /* stagingProfile.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = F3383L6K8A;
 				GOOGLE_SCHEME = "com.googleusercontent.apps.761406625155-sjij099mp0blg070s5nror0lto9d1fbr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1202,11 +1193,12 @@
 			baseConfigurationReference = 86713F6C3EDAC5DC53910E97 /* productionRelease.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Runner/RunnerRelease-production.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = F3383L6K8A;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3383L6K8A;
 				GOOGLE_SCHEME = "com.googleusercontent.apps.761406625155-71ur7920c8diata6dfgk0m8jhmir0l18";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "profile-moodlog";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1275,6 +1267,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.logmind.moodlog.staging;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -1288,11 +1281,12 @@
 			baseConfigurationReference = E1FB6A6DA2F8294BDF10EC88 /* productionProfile.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Runner/RunnerProfile-production.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = F3383L6K8A;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3383L6K8A;
 				GOOGLE_SCHEME = "com.googleusercontent.apps.761406625155-71ur7920c8diata6dfgk0m8jhmir0l18";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "profile-moodlog";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1352,6 +1346,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1403,6 +1398,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1419,11 +1415,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = F3383L6K8A;
+				DEVELOPMENT_TEAM = F3383L6K8A;
 				ENABLE_BITCODE = NO;
 				GOOGLE_SCHEME = "";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -1435,7 +1429,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.logmind.moodlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "profile-moodlog";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1455,12 +1448,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/RunnerRelease.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = F3383L6K8A;
+				DEVELOPMENT_TEAM = F3383L6K8A;
 				ENABLE_BITCODE = NO;
 				GOOGLE_SCHEME = "";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -1471,8 +1462,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.logmind.moodlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "profile-moodlog";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "profile-moodlog";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1489,11 +1479,12 @@
 			baseConfigurationReference = F9C1881C6F83885401D2191A /* productionDebug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Runner/RunnerDebug-production.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = F3383L6K8A;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3383L6K8A;
 				GOOGLE_SCHEME = "com.googleusercontent.apps.761406625155-71ur7920c8diata6dfgk0m8jhmir0l18";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "profile-moodlog";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1569,6 +1560,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.logmind.moodlog;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1637,6 +1629,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.logmind.moodlog.dev;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -1708,6 +1701,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.logmind.moodlog.staging;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";

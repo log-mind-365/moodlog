@@ -1812,4 +1812,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String mood_summary_current_weekly_summaries(int count) {
     return 'Current weekly summaries: $count';
   }
+
+  @override
+  String get mood_summary_available_today => 'Available today';
+
+  @override
+  String mood_summary_available_after_hours(int hours) {
+    return 'Available in $hours hours';
+  }
+
+  @override
+  String mood_summary_available_after_days(int days) {
+    return 'Available in $days days';
+  }
 }

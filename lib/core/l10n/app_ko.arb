@@ -775,5 +775,22 @@
         "type": "int"
       }
     }
+  },
+  "mood_summary_available_today": "오늘 생성 가능",
+  "mood_summary_available_after_hours": "{hours}시간 후 생성 가능",
+  "@mood_summary_available_after_hours": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "mood_summary_available_after_days": "{days}일 후 생성 가능",
+  "@mood_summary_available_after_days": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
   }
 }

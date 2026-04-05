@@ -189,26 +189,37 @@ class MoodSummaryViewModel extends ChangeNotifier with AsyncStateMixin {
     };
   }
 
-  String getTimeRemainingText(MoodSummaryPeriod period) {
+  ({bool isAvailableToday, int remainingValue, bool isHours}) getTimeRemaining(
+    MoodSummaryPeriod period,
+  ) {
     final now = DateTime.now();
 
     switch (period) {
       case MoodSummaryPeriod.daily:
         final tomorrow = DateTime(now.year, now.month, now.day + 1);
         final remaining = tomorrow.difference(now);
-        final hours = remaining.inHours;
-        return '$hours시간 후 생성 가능';
+        return (
+          isAvailableToday: false,
+          remainingValue: remaining.inHours,
+          isHours: true,
+        );
 
       case MoodSummaryPeriod.weekly:
         final daysUntilSunday = (7 - now.weekday) % 7;
-        if (daysUntilSunday == 0) return '오늘 생성 가능';
-        return '$daysUntilSunday일 후 생성 가능';
+        return (
+          isAvailableToday: daysUntilSunday == 0,
+          remainingValue: daysUntilSunday,
+          isHours: false,
+        );
 
       case MoodSummaryPeriod.monthly:
         final lastDayOfMonth = DateTime(now.year, now.month + 1, 0).day;
         final daysRemaining = lastDayOfMonth - now.day;
-        if (daysRemaining == 0) return '오늘 생성 가능';
-        return '$daysRemaining일 후 생성 가능';
+        return (
+          isAvailableToday: daysRemaining == 0,
+          remainingValue: daysRemaining,
+          isHours: false,
+        );
     }
   }
 }

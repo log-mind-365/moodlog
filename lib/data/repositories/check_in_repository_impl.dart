@@ -28,6 +28,7 @@ class CheckInRepositoryImpl implements CheckInRepository {
        _emotionLocalDataSource = emotionLocalDataSource;
 
   final _checkInStreamController = StreamController<List<CheckIn>>.broadcast();
+  StreamSubscription<List<CheckIn>>? _checkInSubscription;
 
   @override
   Stream<List<CheckIn>> get checkInStream => _checkInStreamController.stream;
@@ -252,14 +253,16 @@ class CheckInRepositoryImpl implements CheckInRepository {
   @override
   Future<void> notifyCheckInUpdate() async {
     if (!_checkInStreamController.isClosed) {
+      await _checkInSubscription?.cancel();
       final checkIns = _checkInLocalDataSource.watchAllCheckIns();
-      checkIns.listen((data) {
+      _checkInSubscription = checkIns.listen((data) {
         _checkInStreamController.add(data);
       });
     }
   }
 
   void dispose() {
+    _checkInSubscription?.cancel();
     _checkInStreamController.close();
   }
 }

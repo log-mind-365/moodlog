@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moodlog/core/constants/common.dart';
+import 'package:moodlog/core/extensions/date_time.dart';
 import 'package:moodlog/core/l10n/app_localizations.dart';
 import 'package:moodlog/presentation/screens/statistics/statistics_view_model.dart';
 import 'package:moodlog/presentation/widgets/base_card.dart';
@@ -19,10 +20,10 @@ class YearlyDashboardCard extends StatelessWidget {
     final avgMood = context.select<StatisticsViewModel, double>(
       (vm) => vm.yearlyAverageMood,
     );
-    final bestMonth = context.select<StatisticsViewModel, String>(
+    final bestMonth = context.select<StatisticsViewModel, int?>(
       (vm) => vm.yearlyBestMonth,
     );
-    final worstMonth = context.select<StatisticsViewModel, String>(
+    final worstMonth = context.select<StatisticsViewModel, int?>(
       (vm) => vm.yearlyWorstMonth,
     );
 
@@ -68,7 +69,9 @@ class YearlyDashboardCard extends StatelessWidget {
               Expanded(
                 child: _DashboardItem(
                   label: t.statistics_yearly_best_month,
-                  value: bestMonth.isNotEmpty ? bestMonth : '-',
+                  value: bestMonth != null
+                      ? DateTime(2024, bestMonth).getLocalizedMonthName(t)
+                      : '-',
                   icon: Icons.trending_up,
                   color: colorScheme.tertiary,
                 ),
@@ -81,7 +84,9 @@ class YearlyDashboardCard extends StatelessWidget {
               Expanded(
                 child: _DashboardItem(
                   label: t.statistics_yearly_worst_month,
-                  value: worstMonth.isNotEmpty ? worstMonth : '-',
+                  value: worstMonth != null
+                      ? DateTime(2024, worstMonth).getLocalizedMonthName(t)
+                      : '-',
                   icon: Icons.trending_down,
                   color: colorScheme.secondary,
                 ),

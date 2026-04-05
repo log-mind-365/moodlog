@@ -1759,4 +1759,17 @@ class AppLocalizationsKo extends AppLocalizations {
   String mood_summary_current_weekly_summaries(int count) {
     return '현재 $count개의 주간 결산';
   }
+
+  @override
+  String get mood_summary_available_today => '오늘 생성 가능';
+
+  @override
+  String mood_summary_available_after_hours(int hours) {
+    return '$hours시간 후 생성 가능';
+  }
+
+  @override
+  String mood_summary_available_after_days(int days) {
+    return '$days일 후 생성 가능';
+  }
 }

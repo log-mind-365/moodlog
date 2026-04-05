@@ -136,7 +136,16 @@ class _EmptyState extends StatelessWidget {
     final t = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
     final viewModel = context.read<MoodSummaryViewModel>();
-    final timeRemaining = viewModel.getTimeRemainingText(period);
+    final timeRemainingData = viewModel.getTimeRemaining(period);
+    final timeRemaining = timeRemainingData.isAvailableToday
+        ? t.mood_summary_available_today
+        : timeRemainingData.isHours
+            ? t.mood_summary_available_after_hours(
+                timeRemainingData.remainingValue,
+              )
+            : t.mood_summary_available_after_days(
+                timeRemainingData.remainingValue,
+              );
 
     final (
       :todayCheckInCount,

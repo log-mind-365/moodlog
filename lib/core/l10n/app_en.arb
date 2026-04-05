@@ -775,5 +775,22 @@
         "type": "int"
       }
     }
+  },
+  "mood_summary_available_today": "Available today",
+  "mood_summary_available_after_hours": "Available in {hours} hours",
+  "@mood_summary_available_after_hours": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "mood_summary_available_after_days": "Available in {days} days",
+  "@mood_summary_available_after_days": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
   }
 }

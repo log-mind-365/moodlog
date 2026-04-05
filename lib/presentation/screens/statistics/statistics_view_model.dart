@@ -251,22 +251,20 @@ class StatisticsViewModel extends ChangeNotifier with AsyncStateMixin {
     return checkIns.map((c) => c.moodType.score).average;
   }
 
-  String get yearlyBestMonth {
+  int? get yearlyBestMonth {
     final monthlyAverages = yearlyMonthlyAverages;
-    if (monthlyAverages.isEmpty) return '';
-    final bestMonth = monthlyAverages.entries
+    if (monthlyAverages.isEmpty) return null;
+    return monthlyAverages.entries
         .reduce((a, b) => a.value > b.value ? a : b)
         .key;
-    return '$bestMonth';
   }
 
-  String get yearlyWorstMonth {
+  int? get yearlyWorstMonth {
     final monthlyAverages = yearlyMonthlyAverages;
-    if (monthlyAverages.isEmpty) return '';
-    final worstMonth = monthlyAverages.entries
+    if (monthlyAverages.isEmpty) return null;
+    return monthlyAverages.entries
         .reduce((a, b) => a.value < b.value ? a : b)
         .key;
-    return '$worstMonth';
   }
 
   Map<int, double> get yearlyMonthlyAverages {

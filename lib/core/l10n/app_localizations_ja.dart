@@ -1759,4 +1759,17 @@ class AppLocalizationsJa extends AppLocalizations {
   String mood_summary_current_weekly_summaries(int count) {
     return '現在の週次まとめ: $count個';
   }
+
+  @override
+  String get mood_summary_available_today => '今日生成可能';
+
+  @override
+  String mood_summary_available_after_hours(int hours) {
+    return '$hours時間後に生成可能';
+  }
+
+  @override
+  String mood_summary_available_after_days(int days) {
+    return '$days日後に生成可能';
+  }
 }

@@ -27,7 +27,7 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
           });
         },
         onAdFailedToLoad: (ad, error) {
-          debugPrint('NativeAd failed to load: $error');
+          debugPrint('BannerAd failed to load: $error');
         },
       ),
     );

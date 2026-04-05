@@ -15,6 +15,9 @@ abstract final class AppTheme {
       appBarTheme: AppBarTheme(
         backgroundColor: cs.surfaceContainerLowest,
         systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.dark,
+          statusBarBrightness: Brightness.light,
           systemNavigationBarColor: cs.surfaceContainer,
           systemNavigationBarIconBrightness: Brightness.dark,
         ),
@@ -41,6 +44,9 @@ abstract final class AppTheme {
       appBarTheme: AppBarTheme(
         backgroundColor: cs.surfaceContainerLowest,
         systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.light,
+          statusBarBrightness: Brightness.dark,
           systemNavigationBarColor: cs.surfaceContainer,
           systemNavigationBarIconBrightness: Brightness.light,
         ),

@@ -12,7 +12,10 @@ class WeatherRepositoryImpl implements WeatherRepository {
   // 1. https://openweathermap.org/api 에서 무료 API 키 발급
   // 2. 아래 'demo_key'를 발급받은 API 키로 교체
   // 현재는 Mock 데이터가 반환됩니다.
-  static const String _apiKey = '210b2d0ea5645db646e999c2e039b211';
+  static const String _apiKey = String.fromEnvironment(
+    'WEATHER_API_KEY',
+    defaultValue: '',
+  );
 
   @override
   Future<Result<WeatherInfo>> getCurrentWeather({
@@ -42,16 +45,22 @@ class WeatherRepositoryImpl implements WeatherRepository {
   }
 
   WeatherInfo _parseOpenWeatherData(Map<String, dynamic> data) {
-    final main = data['main'];
-    final weather = (data['weather'] as List).first;
-    final wind = data['wind'] ?? {};
-    final location = data['name'] as String? ?? '현재 위치';
+    final main = data['main'] as Map<String, dynamic>?;
+    final weatherList = data['weather'] as List?;
+    final wind = data['wind'] as Map<String, dynamic>? ?? {};
+    final location = data['name'] as String? ?? '';
+
+    if (main == null || weatherList == null || weatherList.isEmpty) {
+      throw FormatException('Invalid weather API response');
+    }
+
+    final weather = weatherList.first as Map<String, dynamic>;
 
     return WeatherInfo(
       temperature: (main['temp'] as num).toDouble(),
-      description: weather['description'] as String,
-      icon: weather['icon'] as String,
-      humidity: (main['humidity'] as num).toDouble(),
+      description: weather['description'] as String? ?? '',
+      icon: weather['icon'] as String? ?? '01d',
+      humidity: (main['humidity'] as num?)?.toDouble() ?? 0.0,
       pressure: (main['pressure'] as num?)?.toDouble() ?? 0.0,
       windSpeed: (wind['speed'] as num?)?.toDouble() ?? 0.0,
       location: location,

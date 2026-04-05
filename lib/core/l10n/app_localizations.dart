@@ -3429,6 +3429,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Current weekly summaries: {count}'**
   String mood_summary_current_weekly_summaries(int count);
+
+  /// No description provided for @mood_summary_available_today.
+  ///
+  /// In en, this message translates to:
+  /// **'Available today'**
+  String get mood_summary_available_today;
+
+  /// No description provided for @mood_summary_available_after_hours.
+  ///
+  /// In en, this message translates to:
+  /// **'Available in {hours} hours'**
+  String mood_summary_available_after_hours(int hours);
+
+  /// No description provided for @mood_summary_available_after_days.
+  ///
+  /// In en, this message translates to:
+  /// **'Available in {days} days'**
+  String mood_summary_available_after_days(int days);
 }
 
 class _AppLocalizationsDelegate
